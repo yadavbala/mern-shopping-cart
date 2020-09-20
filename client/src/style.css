@@ -1,0 +1,199 @@
+body{
+  font-family: 'Roboto', sans-serif;
+  z-index: 10;
+}
+.input-style{
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: none;
+    box-shadow: none;
+    border-radius: inherit;
+}
+
+.ant-card{
+    box-shadow:0 0 2px 2px #ccc
+}
+
+.input-style:focus{
+    border-bottom:2px solid lightblue;
+    transition:all 0.3s ease;
+    box-shadow :none;
+}
+
+.label-style{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.ant-card-head-title{
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.error-msg{
+    color:red;
+    font-size:14px;
+}
+.align-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lifestyle-tag{
+    padding:10px;
+    font-size: 22px;
+    font-weight: 600;
+    text-align: center;
+    background:yellowgreen;
+    color:brown;
+    text-transform: uppercase;
+    word-spacing: 0.5px;
+    text-shadow: 2px 2px #ccc;
+}
+
+.display-total{
+  display: flex;
+  place-content: flex-end;
+  color:darkviolet
+}
+
+.site-calendar-demo-card {
+  width: 300px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+}
+
+.menuBar{
+    padding: 0 20px;
+    border-bottom: solid 1px #e8e8e8;
+    overflow: auto;
+    box-shadow: 0 0 30px #f3f1f1;
+  }
+  .logo{
+    width: 150px;
+    float: left;
+  }
+  .logo a{
+    display: inline-block;
+    font-size: 20px;
+    padding: 19px 20px;
+    text-transform: capitalize;
+  }
+  .footer{
+    text-align: center;
+    bottom:0;
+    left:0;
+    padding:10px;
+    position:fixed;
+    z-index: 1;
+    width:100%
+  }
+  .menuCon{
+    width: calc(100% - 150px);
+    float: left;
+  }
+  .menuCon .ant-menu-item{
+    padding: 0px 5px;
+  }
+  .menuCon .ant-menu-submenu-title{
+    padding: 10px 20px;
+  }
+  .menuCon .ant-menu-item a, .menuCon .ant-menu-submenu-title a{
+    padding: 10px 15px;
+    color: #fff;
+  }
+  .menuCon .ant-menu-horizontal{
+    border-bottom: none;
+    background:#333
+  }
+  .menuCon .leftMenu{
+    float: left;
+  }
+  .menuCon .rightMenu{
+    float: right;
+  }
+  .barsMenu{
+    float: right;
+    height: 32px;
+    padding: 6px;
+    margin-top: 8px;
+    display: none;
+    background: none;
+  }
+  .barsBtn{
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #1890ff;
+    position: relative;
+  }
+  .barsBtn:after,.barsBtn:before{
+    content: attr(x);
+    width: 20px;
+    position: absolute;
+    top: -6px;
+    left: 0;
+    height: 2px;
+    background: #1890ff;
+  }
+  .barsBtn:after{
+    top: auto;
+    bottom: -6px;
+  }
+  .ant-drawer-body{
+    padding: 0;
+  }
+  .ant-drawer-body .ant-menu-horizontal > .ant-menu-item, .ant-drawer-body .ant-menu-horizontal > .ant-menu-submenu{
+    display: inline-block;
+    width: 100%;
+  }
+  .ant-drawer-body .ant-menu-horizontal{
+    border-bottom: none;
+  }
+  .ant-drawer-body .ant-menu-horizontal > .ant-menu-item:hover{
+    border-bottom-color: transparent;
+  }
+
+  .leftside{
+    max-width:280px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    padding:120px 30px 0px 20px
+  }
+
+  .rightside{
+    max-width: calc(100% - 290px);
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    margin-top:30px
+  }
+
+  .mainproduct{
+    display: flex;
+    flex-direction: row;
+  }
+
+  @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+  
+  @media(max-width: 767px){
+    .barsMenu{
+      display: inline-block;
+    }
+    .leftMenu,.rightMenu{
+      display: none;
+    }
+    .logo a{
+      margin-left: -20px;
+    }
+    .menuCon .ant-menu-item, .menuCon .ant-menu-submenu-title{
+      padding: 1px 20px;
+    }
+    .logo a{
+      padding: 10px 20px;
+    }
+  }
