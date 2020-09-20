@@ -45,8 +45,7 @@ const userSchema=new Schema({
         default:'user'
     },
     address:{
-        type:String,
-        required:[true,'address is mandatory']
+        type:String
     }
 },{timestamps:true})
 

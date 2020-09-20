@@ -5,14 +5,14 @@ const Schema=mongoose.Schema
 
 const uniquevalidator=require('mongoose-unique-validator')
 
-const uploadSchema=require('./upload')
 
 const productSchema=new Schema({
     name:{
         type:String,
         required:[true,'name is mandatory'],
         unique:true,
-        minlength:[2,'product name must be minimum of 2 characters']
+        minlength:[2,'product name must be minimum of 2 characters'],
+        sparse:true
     },
     price:{
         type:Number,
@@ -23,10 +23,6 @@ const productSchema=new Schema({
         type:Number,
         default:1
     },
-    productPic:{
-        type:String,
-        required:true
-    },
     description:{
         type:String,
         required:[true,'description is mandatory'],
@@ -35,19 +31,29 @@ const productSchema=new Schema({
     categoryId:{
         type:Schema.Types.ObjectId,
         ref:'Category',
-       required:true
+       required:[true,'category is mandatory']
     },
     brand:{
         type:String,
-        required:true
+        required:[true,'brand is mandatory']
     },
-    size:{
-        type:Array,
-        required:[true,'size is mandatory']
+    productPic:{
+        type:String
+    },
+    stock:{
+        type:Number,
+        default:0
+    },
+    sold:{
+        type:Number,
+        default:0
     }
+    
 },{timestamps:true})
 
 productSchema.plugin(uniquevalidator)
+
+productSchema.index({name:'text'})
 
 const Product=mongoose.model('Product',productSchema)
 

@@ -1,8 +1,8 @@
-const Category=require('../models/categories')
+const Category=require('../models/category')
 
-const categoriesCltr={}
+const categoryController={}
 
-categoriesCltr.list=(req,res)=>{
+categoryController.list=(req,res)=>{
     Category.find()
             .then((categories)=>{
                 res.json(categories)
@@ -12,7 +12,7 @@ categoriesCltr.list=(req,res)=>{
             })
 }
 
-categoriesCltr.create=(req,res)=>{
+categoryController.create=(req,res)=>{
     const body=req.body
     const category=new Category(body)
     category.save()
@@ -24,7 +24,7 @@ categoriesCltr.create=(req,res)=>{
             })
 }
 
-categoriesCltr.show=(req,res)=>{
+categoryController.show=(req,res)=>{
     const id=req.params.id
     Category.findById(id)
             .then((category)=>{
@@ -39,10 +39,10 @@ categoriesCltr.show=(req,res)=>{
             })
 }
 
-categoriesCltr.update=(req,res)=>{
+categoryController.update=(req,res)=>{
     const id=req.params.id
     const body=req.body
-    Category.findByIdAndUpdate(id,body,{new:true,runValidators:true})
+    Category.findByIdAndUpdate(id,body,{new:true,runValidators:true,upsert:true,setDefaultsOnInsert:true,context:'query'})
             .then((category)=>{
                 if(category){
                     res.json(category)
@@ -55,7 +55,7 @@ categoriesCltr.update=(req,res)=>{
             })
 }
 
-categoriesCltr.destroy=(req,res)=>{
+categoryController.destroy=(req,res)=>{
     const id=req.params.id
     Category.findByIdAndDelete(id)
             .then((category)=>{
@@ -70,4 +70,4 @@ categoriesCltr.destroy=(req,res)=>{
             })
 }
 
-module.exports=categoriesCltr
+module.exports=categoryController

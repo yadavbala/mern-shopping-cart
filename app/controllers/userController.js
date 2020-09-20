@@ -4,9 +4,9 @@ const jwt=require('jsonwebtoken')
 const { SECRET } = require('../../utils/dotenv')
 const {SECRETADMIN} = require('../../utils/dotenv')
 const {usersregister,userslogin}=require('../../helpers/sessionfunc')
-const usersCltr={}
+const userController={}
 
-usersCltr.register=(req,res)=>{
+userController.register=(req,res)=>{
     const body=req.body
     const user=new User(body)
     body.admin==SECRETADMIN ? user.role='admin':'user'
@@ -20,7 +20,7 @@ usersCltr.register=(req,res)=>{
 }
 
 
-usersCltr.login=(req,res)=>{
+userController.login=(req,res)=>{
     const body=req.body
     User.findOne({email:body.email})
     .then((user)=>{
@@ -49,7 +49,7 @@ usersCltr.login=(req,res)=>{
 
 
 
-usersCltr.account=(req,res)=>{
+userController.account=(req,res)=>{
     User.findOne({_id:req.userId})
         .then((user)=>{
             if(user){
@@ -63,4 +63,4 @@ usersCltr.account=(req,res)=>{
         })
 }
 
-module.exports=usersCltr
+module.exports=userController
