@@ -32,7 +32,7 @@ MERN SHOPPING CART is a full stack web application, has role based user authenti
 * The subtotal for each product and total is displayed in cart page
 * User can delete cart items
 
-# Cart
+# Orders
 * User can order the products in cart items 
 * The specified order of user is displayed on orders page
 * All the orders displayed for admin
